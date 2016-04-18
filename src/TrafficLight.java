@@ -17,13 +17,13 @@ public class TrafficLight implements Runnable {
     @Override
     public void run() {
         while (true) {
-            startThread(greenLight);
-            startThread(yellowLight);
-            startThread(redLight);
+            startAndJoinThread(greenLight);
+            startAndJoinThread(yellowLight);
+            startAndJoinThread(redLight);
         }
     }
 
-    private void startThread(Light light) {
+    private void startAndJoinThread(Light light) {
         Thread thread = new Thread(light);
         thread.start();
         try {
